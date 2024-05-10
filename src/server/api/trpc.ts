@@ -11,8 +11,9 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { getServerAuthSession } from "~/server/auth";
-import { db } from "~/server/db";
+import { db } from "@/server/db";
+
+import { getServerAuthSession } from "@/server/auth";
 
 /**
  * 1. CONTEXT
@@ -56,6 +57,8 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
     };
   },
 });
+
+export const createCallerFactory = t.createCallerFactory;
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)

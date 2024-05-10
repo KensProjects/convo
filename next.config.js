@@ -5,6 +5,12 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  // reactStrictMode: true,
+  // swcMinify: true,
+  images: {
+    remotePatterns: [{ hostname: "lh3.googleusercontent.com" }],
+  },
+};
 
 export default config;
